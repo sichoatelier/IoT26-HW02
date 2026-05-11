@@ -1,12 +1,10 @@
-from gpiozero import DigitalInputDevice, LED
+from gpiozero import Button, LED
 from signal import pause
 
 led = LED(14)
-input = DigitalInputDevice (4)
+button = Button(4)
 
-print(input.value)
-
-input.when_activated = led.on
-input.when_deactivated =led.off
+button.when_pressed = led.on
+button.when_released = led.off
 
 pause()
